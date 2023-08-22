@@ -16,6 +16,7 @@ pub fn App(cx: Scope) -> impl IntoView {
         <Title text="Welcome to Rusty chat"/>
 
         // content for this welcome page
-       
+       <ChatArea/>
+       <TypeArea/>
     }
 }
