@@ -16,13 +16,6 @@ pub fn App(cx: Scope) -> impl IntoView {
         <Title text="Welcome to Rusty chat"/>
 
         // content for this welcome page
-        <Router>
-            <main>
-                <Routes>
-                    <Route path="" view=HomePage/>
-                    <Route path="/*any" view=NotFound/>
-                </Routes>
-            </main>
-        </Router>
+       
     }
 }
