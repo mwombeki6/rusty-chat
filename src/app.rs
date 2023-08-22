@@ -1,6 +1,6 @@
 use leptos::*;
 use leptos_meta::*;
-use leptos_router::*;
+//use leptos_router::*;
 
 #[component]
 pub fn App(cx: Scope) -> impl IntoView {
