@@ -1451,6 +1451,7 @@ dependencies = [
  "leptos_actix",
  "leptos_meta",
  "leptos_router",
+ "serde",
  "wasm-bindgen",
 ]
 
