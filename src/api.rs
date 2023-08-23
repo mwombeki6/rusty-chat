@@ -14,4 +14,12 @@ pub async fn converse(cx: Scope, prompt: Conversation) -> Result<String, ServerF
     .await.unwrap();
     
     use llm::KnownModel;
+    let character_name = "### Assistant";
+    let user_name = "### Human";
+    let persona = "A chat between a human and an assistant";
+    let mut history = format!(
+        "{character_name}:Hello - How may I help you today?\n\
+        {user_name}:What is the capital of Tanzania?\n\
+        {character_name}:Dodoma is the capital of Tanzania.\n"
+    );
 }
