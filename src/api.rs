@@ -1,4 +1,4 @@
-use crate::model::conversation::Conversation;
+use crate::model::{self, conversation::Conversation};
 use leptos::{ev::message, *};
 
 #[server(Converse "/api")]
@@ -32,8 +32,25 @@ pub async fn converse(cx: Scope, prompt: Conversation) -> Result<String, ServerF
             format!("{user_name}:{msg}\n")
         };
 
-        history.push_str(&curr_line);
+        //history.push_str(&curr_line);
     }
+
+    let mut res = String::new();
+    let mut rng = rand::thread_rng();
+    let mut buf = String::new();
+
+    let mut session = model.start_session(Default::default());
+
+    session.infer(
+        model.as_ref(),
+        &mut rng,
+        &llm::InferenceRequest {
+            prompt: format!("{persona}\n{history}\n{character_name}:")
+                .as_str()
+                .into(),
+            parameters: Some(&llm::InferenceParameters::default()),    
+        },
+    );
 
     Ok(String::from(""))
 }
