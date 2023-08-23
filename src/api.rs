@@ -29,7 +29,11 @@ pub async fn converse(cx: Scope, prompt: Conversation) -> Result<String, ServerF
         let curr_line = if message.user {
             format!("{character_name}:{msg}\n")
         } else {
-            format!("{user_name}:{msg}")
+            format!("{user_name}:{msg}\n")
         };
+
+        history.push_str(&curr_line);
     }
+
+    Ok(String::from(""))
 }
