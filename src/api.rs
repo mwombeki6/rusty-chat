@@ -53,6 +53,7 @@ pub async fn converse(cx: Scope, prompt: Conversation) -> Result<String, ServerF
             maximum_token_count: None,    
         },
         &mut Default::default(),
+        inference_callback(String::from(user_name), &mut buf, &mut res),
     );
 
     Ok(String::from(""))
