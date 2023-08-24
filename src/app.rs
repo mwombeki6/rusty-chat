@@ -1,8 +1,15 @@
+use std::cell::RefCell;
+use std::rc::Rc;
+
+use futures::stream::SplitSink;
 use leptos::*;
 use leptos_meta::*;
 
+mod components;
+use components::chat_area::ChatArea;
+use components::type_area::TypeArea;
+
 use crate::model::conversation::{Conversation, Message};
-//use leptos_router::*;
 
 #[component]
 pub fn App(cx: Scope) -> impl IntoView {
