@@ -48,8 +48,11 @@ pub async fn converse(cx: Scope, prompt: Conversation) -> Result<String, ServerF
             prompt: format!("{persona}\n{history}\n{character_name}:")
                 .as_str()
                 .into(),
-            parameters: Some(&llm::InferenceParameters::default()),    
+            parameters: Some(&llm::InferenceParameters::default()),
+            play_back_previous_tokens: false,
+            maximum_token_count: None,    
         },
+        &mut Default::default(),
     );
 
     Ok(String::from(""))
