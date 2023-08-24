@@ -54,7 +54,8 @@ pub async fn converse(cx: Scope, prompt: Conversation) -> Result<String, ServerF
         },
         &mut Default::default(),
         inference_callback(String::from(user_name), &mut buf, &mut res),
-    );
+    )
+    .unwrap_or_else(|e| panic!("{e}"));
 
     Ok(String::from(""))
 }
